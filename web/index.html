@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Faserli</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23142033'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='15' font-weight='700' text-anchor='middle' fill='%235fd49a'%3E%5E~%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=3">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="caret" aria-hidden="true">^~~</span>
+      <h1>Faserli</h1>
+    </div>
+    <div class="status" id="status" aria-live="polite"></div>
+  </header>
+
+  <main class="stage">
+    <section class="listing" aria-label="Source file">
+      <div class="listing-bar">
+        <label class="file-pick">
+          <span class="sr">File</span>
+          <select id="file"></select>
+        </label>
+        <div class="views" id="views" role="group" aria-label="View" hidden>
+          <button type="button" data-view="original" aria-pressed="false">Original</button>
+          <button type="button" data-view="redline" aria-pressed="true">Redline</button>
+          <button type="button" data-view="fixed" aria-pressed="false">Fixed</button>
+        </div>
+        <span class="spacer"></span>
+        <button type="button" class="btn" id="undo" hidden>Undo last apply</button>
+        <button type="button" class="btn" id="run">Build and run</button>
+      </div>
+      <div class="sheet" id="sheet"><div class="code" id="code" role="region" aria-label="Code" tabindex="0"></div></div>
+      <div class="runstrip" id="runstrip" hidden></div>
+    </section>
+
+    <section class="assist" aria-label="Assistant">
+      <div class="block">
+        <h2>Error</h2>
+        <textarea class="err" id="error" spellcheck="false"
+          placeholder="Paste a compiler or runtime error here, or build the file to capture one."></textarea>
+        <div class="actions">
+          <button type="button" class="btn primary" id="fix">Explain and fix</button>
+          <span class="hint" id="fixhint" aria-live="polite">Ctrl+Enter also works.</span>
+        </div>
+      </div>
+
+      <div class="empty" id="empty">
+        <p>The assistant reads your file, explains what went wrong, and tries its fix in a sandbox copy of your project. Nothing changes in your files until you apply it.</p>
+      </div>
+
+      <div class="block" id="traceblock" hidden>
+        <h2>What the assistant did</h2>
+        <ol class="trace" id="trace"></ol>
+      </div>
+
+      <div class="block" id="storyblock" hidden>
+        <h2>What went wrong</h2>
+        <div class="story" id="story"></div>
+      </div>
+
+      <div class="block" id="decision" hidden>
+        <div class="verdict" id="verdict"></div>
+        <div class="actions">
+          <button type="button" class="btn ok" id="apply">Apply fix</button>
+          <label class="force" id="forcewrap" hidden>
+            <input type="checkbox" id="force"> Apply even though the sandbox check failed
+          </label>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js?v=3"></script>
+</body>
+</html>
