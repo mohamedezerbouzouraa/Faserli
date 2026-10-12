@@ -1,13 +1,8 @@
-"""Split a big model file into parts GitHub accepts (under 2 GB each), or join them back.
-
-  python model_parts.py split Qwen2.5-Coder-7B-Instruct.Q4_K_M.gguf
-  python model_parts.py join  Qwen2.5-Coder-7B-Instruct.Q4_K_M.gguf
-"""
 import glob
 import hashlib
 import sys
 
-PART = 1_500_000_000  # 1.5 GB per part, safely under GitHub's 2 GB limit per release file
+PART = 1_500_000_000 
 CHUNK = 64 * 1024 * 1024
 
 
