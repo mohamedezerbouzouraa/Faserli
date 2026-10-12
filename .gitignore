@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.bak
+*.gguf
+*.gguf.part*
+*.gguf.sha256
