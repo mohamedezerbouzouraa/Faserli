@@ -53,11 +53,3 @@ To use your own project: `set PROJECT_DIR=C:\path\to\project` (Windows) or
 - `mcp_server.py`: the MCP tools.
 - `app.py`: an older, plain Gradio interface (needs `pip install gradio`). Optional.
 
-## Limits to know about
-
-- The model was trained on small single-file programs where the file is called `main.cpp`.
-  It works best on similar code and returns the whole corrected file, so very large files are a poor fit.
-- `compile_and_run` builds one file (with `-I .` for your headers). Multi-file projects need a custom build command.
-- `compile_and_run` really runs the program (10 s limit) in a temporary copy. Only run code you trust.
-- The page loads two fonts from Google Fonts. Offline it falls back to system fonts and works the same.
-- Always read the redline before you click Apply.
