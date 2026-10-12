@@ -8,8 +8,7 @@ int main() {
     }
     long long total = 0;
     for (int i = 0; i < n; ++i) {
-        total += data[i];
-    }
+        total += data[i];}
     std::cout << "Total: " << total << std::endl;
     delete[] data;
     return 0;
