@@ -2,5 +2,3 @@
 __pycache__/
 *.bak
 *.gguf
-*.gguf.part*
-*.gguf.sha256
