@@ -13,7 +13,6 @@ def sha(path):
             h.update(b)
     return h.hexdigest()
 
-
 def split(path):
     n = 0
     with open(path, "rb") as src:
